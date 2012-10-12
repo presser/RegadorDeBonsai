@@ -58,7 +58,7 @@ int read_moisture() {
   digitalWrite(dividerBottom, HIGH);
   delay(dividerDelay);
   
-  moisture = analogRead(moisturePin);
+  result = analogRead(moisturePin);
   
   digitalWrite(dividerBottom, LOW);
   delay(dividerDelay);  
@@ -66,7 +66,7 @@ int read_moisture() {
 
 #ifdef DEBUG
   Serial.begin(9600);
-  Serial.println(moisture);
+  Serial.println(result);
   Serial.println(NARCOLEPTIC_DELAY);
   Serial.end();
 #endif
@@ -82,8 +82,8 @@ void pump() {
   digitalWrite(pumpPin, LOW);
 }
 
-//As we need to sleep for a long time and Narcoleptic uses int as the delay, 
-//this function takes care of delaying longs.
+//This function takes care of sleeping for long, since
+//narcoleptic only sleeps for int.
 void narcoleptic_sleep(long miliseconds) {
   while (miliseconds > 0) {
     if (miliseconds > MAX_INT) {
