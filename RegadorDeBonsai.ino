@@ -5,7 +5,7 @@
 #ifdef DEBUG
 #define NARCOLEPTIC_DELAY 10 * 1000L
 #else
-#define NARCOLEPTIC_DELAY 60 * 60 * 1000L
+#define NARCOLEPTIC_DELAY 120 * 60 * 1000L
 #endif
 
 #define MAX_INT 32767
@@ -20,7 +20,7 @@ const int moisturePin = 0;
 const int moistureMin = 630;
 
 const int dividerDelay = 5 * 1000;
-const int pumpDelay = 6 * 1000;
+const int pumpDelay = 15 * 1000;
 
 int moisture = 0;
 
